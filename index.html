@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Solium Projects</title>
+
+		<meta name="author" content="Spencer Walton">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+            <!--link href="?transition=cube#/transitions"-->
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+    <style>
+        .reveal h1{
+            
+            font-size:3em;
+        }
+        
+    </style>
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Solium Projects</h1>
+					<h3>Internship Projects</h3>
+					<p>
+						<small>Created by Spencer Walton</small>
+					</p>
+				</section>
+                
+                <!-- Example of nested vertical slides -->
+				<section >
+					<section>
+						<h1>Veronica Mars</h1><br>
+                        <p>
+						'Veronica Mars' is a collection of four dashboards, built using the <a href="http://dashing.io/">dashing</a> framework.
+                        </p>
+                        
+                        <aside class="notes">
+                            Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+                        </aside>
+					</section>
+                    <section>
+						<h2>Programming</h2>
+                        <p><br>
+                        <ul>
+                            <li>HTML and SCSS to build and style the widgets (custom graphs)</li>
+                            <li>Coffescript, to add interaction to widgets - such as shift clicking to retreive data - as well as changing styles and elements based on data.</li>
+                            <li>Ruby, to get data to send to the widgets - data was pulled and subsequently parsed from the jiraSOAP gem, json files, and the Shareworks REST API.</li>
+                            
+                        </ul>
+                        </p>
+					</section>
+					<section >
+						<h2>Test Sites</h2><br>
+						<p>The first dashboard monitors the statuses of the test sites - the response codes, last data refresh, version, and schema name. Double-clicking visits a site, and shift-clicking allows you to copy the database schema name. Sites will be green when up, and red when down.</p>
+					</section>
+					<section>
+						<h2>Test Sites Example</h2>
+							<img src="assets/mars_sb.gif">
+					</section>
+					<section>
+						<h2>LIVE Today Features</h2>
+						<p><br><!--/p-->
+                            <ul>
+                                <li>Daily Tasks (JIRAS) Remaining and Completed.</li>
+                                <li>"Freshness" of jiras, based on thier last update. The colour changes to represent this.</li>
+                                <li>Locked, Escalated, and planned events. A symbol appears on jiras to represent this.</li>
+                                <li>Difficulty ("Simard Scale") of completed jiras.</li>
+                                <li>Weekly averages, distribution, and graph of the difficulty of completed jiras.</li>
+                                <li>Double clicking on a specific jira will open the jira.</li>
+                            </ul>
+                            <!--p-->
+                        
+                        </p>
+					</section>
+                    <section>
+						<h2>LIVE Today Example</h2>
+						
+							<img  src="assets/mars_live.gif">
+                            
+					</section>
+                    <section>
+						<h2>AST Dashboard</h2><br>
+						<p>This dashboard uses the Shareworks REST API to check the status of data imports for companies using AST. Any company that has no import in the last 24 hours turns red.</p>
+					</section>
+                    <section>
+						<h2>Jira Heatmap</h2><br>
+						<p>This dashboard displays an approximation of where the work (in jira form) is being created, by office. It uses a customized version of a community widget.</p>
+					</section>
+                    <section >
+						<h2>Heatmap Example</h2>
+                        
+							<img src="assets/mars_heatmap.png">
+					</section>
+				</section>
+                
+                
+				<section>
+					<section>
+						<h1>LiveBot</h1><br>
+                        <p>
+						'LiveBot' is a chat bot built using the <a href="https://hubot.github.com/">Hubot</a> framework, and the <a href="https://github.com/hipchat/hubot-hipchat">Hipchat</a> adapter. It uses Hipchat's Jabber/XMPP integration in order to communicate with an internally hosted instance of Hipchat.
+                        </p>
+					</section>
+                    <section >
+                        <h2>Programming</h2>
+                        <p><br>
+                        <ul>
+                            <li>Coffeescript/Javascript to build bot functionality, such as allowing it to leave a room.</li>
+                            <li>Coffeescript to build the scripts for the bot's features - such as a dogecoin tipping service.</li>
+                            <li>Ruby, to provide more in depth scripts. These pulled and parsed data from multiple APIs - jiraSOAP gem, googlecharts, opsgenie, among others - as well as direct parsing of json or webpages.</li>
+                            <li>Shell scripts.</li>
+                            
+                        </ul>
+                        </p>
+					</section>
+					<section >
+						<h2>Modifications</h2><br>
+						<p>The default frameworks were missing some features, so they were added manually:<br>
+                        <p>LiveBot was made able to leave rooms - this required changing source code.
+                            A number of scripts were also added. The more significant ones are listed below.
+                        </p>
+					</section>
+                    <section >
+						<h2>Jira Retrieval</h2>
+						<p>When a jira key is mentioned in a room, LiveBot will hear it, and return the title and issue type, as well as a link to the jira.</p>
+                        <img src="assets/livebot.gif">
+					</section>
+                    <section >
+						<h2>Pager Functions</h2><br>
+						<p>The LIVE team uses a monitoring and alerting system built on <a href="http://www.opsgenie.com/">opsgenie</a> and <a href="http://sensuapp.org/">sensu</a>.</p>
+                        <p>A feature was added to LiveBot so members of the live team could take the pager from the person on call for a period of time, using the opsgenie forwarding API.</p>
+                        <p>A 'panic button' was also added, allowing people to alert the person on call about a critical jira.
+                        </p>
+					</section>
+                    <section >
+						<h2>Statistics</h2><br>
+						<p>Functions were added to allow LiveBot to return statistics involving jira types and timelines, using googlecharts and the jira SOAP gem.</p><br>
+                        <p>LiveBot can also generate the approximate cost of downtime, by querying the database for the daily trade dollars, and the pingdom API for downtime.</p>
+					</section>
+                    <section >
+						<h2>Marketing Site Mirror</h2><br>
+						<p>Livebot was given functionality to download the <a href="https://solium.com/" >Marketing Site</a> and create a mirror, either on a local server or on s3. This used a shell script that would check if the website was up, downloading a new version if it was, then pushing the existing or new copy to the user specified location.</p>
+                        
+					</section>
+                    <section >
+						<h2>Marketing Site Mirror Example</h2><br>
+						<img src="assets/s3_mirror.png">
+                            
+                    </section>
+                    
+                </section>
+				
+                <section>
+					<section>
+						<h1>Jira Report Card</h1><br>
+                        <p>
+						The Jira Report Card gives statistics on the jiras that a person or group of people raise. This is to show areas where improvement is needed (longer descriptions, more detail or planning) and where a person is strong (bug reports that lead to code fixes, multiple attachments).
+                        </p><br><p>It uses the REST API for jira, parses statistics in ruby, and generates graphs using d3.js, all with a PHP frontend.</p>
+					</section>
+                    <section>
+						<h2>Programming</h2>
+                        <p><br>
+                        <ul>
+                            <li>PHP (formatted with css) to provide a frontend that would handle user input.</li>
+                            <li>Ruby to retreive data from the jira REST API, parse it, and generate CSV files for the report to use.</li>
+                            <li>d3.js to interactively display the data in a webpage.</li>
+                        </ul>
+						<p>It uses the REST API for jira, parses statistics in ruby, and generates graphs using d3.js, all with a PHP frontend.</p>
+					</section>
+					<section >
+						<h2>Sample</h2>
+						<img src="assets/jira_report.gif">
+					</section>
+                    
+                </section>
+				<section>
+					<section>
+						<h1>Miscellaneous Projects</h1>
+                        
+					</section>
+					<section >
+						<h2>On-Call statistics</h2><br>
+                        <p>
+                        Uses the opsgenie API to get how long each person was on call for during a time range, how many total pages they received, and how many were during off-hours, then generates a spreadsheet of this data.
+                        </p>
+                    </section>
+                    
+                    <section >
+						<h2>Shareworks REST API Wrapper Gem/Test Harness</h2><br>
+                        <p>
+                        A ruby gem used to simplify API calls to Shareworks, which was then used for the test harness.
+                        The test harness was written in ruby, using rspec. Tests the commands against expected values, proper formatting, and successful responses.
+                        </p>
+                    </section>
+                    
+                    <section >
+						<h2>Vagrant/Chef-Solo</h2><br>
+                        <p>
+                        In order to have a consistent install pattern for setting up the Veronica Mars and LiveBot projects, Chef was used to create Vagrant machines customized with dependencies and files.
+                        </p>
+                    </section>
+                    
+                    <section >
+						<h2>Zendesk Companies</h2><br>
+                        <p>
+                        Using the Zendesk API and the Shareworks API wrapper gem, I checked for consistencies between companies, to ensure all companies were able to receive support through Zendesk.
+                        </p>
+                    </section>
+                    <section >
+						<h2>Monitorng and Alerting</h2><br>
+                        <p>
+                        Solium uses a monitoring and alerting system with 'traps' to catch errors and events that occur, such as a site outage or stalled transaction.
+                        I wrote a trap (using Ruby) that logs into Shareworks, follows redirects and navigates to the desired page, and checks for errors.
+                        </p>
+                    </section>
+                    <section >
+						<h2>Upcoming Releases Board</h2>
+                        <p>
+                        This is a simple page, using PHP with the jira API to retreive a list of versions, then removing past releases, and sorting by date.
+                        </p><img src="assets/releases_board.png">
+                    </section>
+                </section>
+
+
+
+				<section>
+					<h1>END</h1>
+					<h3>MADE BY SPENCER WALTON</h3>
+                    <br><br><small>Using <a href="https://github.com/hakimel/reveal.js">reveal.js</small>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+                              // Display controls in the bottom right corner
+                              controls: true,
+                              
+                              // Display a presentation progress bar
+                              progress: true,
+                              
+                              // Display the page number of the current slide
+                              slideNumber: false,
+                              
+                              // Push each slide change to the browser history
+                              history: false,
+                              
+                              // Enable keyboard shortcuts for navigation
+                              keyboard: true,
+                              
+                              // Enable the slide overview mode
+                              overview: true,
+                              
+                              // Vertical centering of slides
+                              center: true,
+                              
+                              // Enables touch navigation on devices with touch input
+                              touch: true,
+                              
+                              // Loop the presentation
+                              loop: false,
+                              
+                              // Change the presentation direction to be RTL
+                              rtl: false,
+                              
+                              // Turns fragments on and off globally
+                              fragments: true,
+                              
+                              // Flags if the presentation is running in an embedded mode,
+                              // i.e. contained within a limited portion of the screen
+                              embedded: false,
+                              
+                              // Number of milliseconds between automatically proceeding to the
+                              // next slide, disabled when set to 0, this value can be overwritten
+                              // by using a data-autoslide attribute on your slides
+                              autoSlide: 0,
+                              
+                              // Stop auto-sliding after user input
+                              autoSlideStoppable: true,
+                              
+                              // Enable slide navigation via mouse wheel
+                              mouseWheel: false,
+                              
+                              // Hides the address bar on mobile devices
+                              hideAddressBar: true,
+                              
+                              // Opens links in an iframe preview overlay
+                              previewLinks: false,
+                              
+                              // Transition style
+                              transition: 'cube', // default/cube/page/concave/zoom/linear/fade/none
+                              
+                              // Transition speed
+                              transitionSpeed: 'default', // default/fast/slow
+                              
+                              // Transition style for full page slide backgrounds
+                              backgroundTransition: 'default', // default/none/slide/concave/convex/zoom
+                              
+                              // Number of slides away from the current that are visible
+                              viewDistance: 3,
+                              
+                              // Parallax background image
+                              parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+                              
+                              // Parallax background size
+                              parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+
+				theme: 'sky',//Reveal.getQueryHash().theme, // available themes are in /css/theme
+				//transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
