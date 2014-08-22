@@ -71,8 +71,8 @@
 						<h2>Programming</h2>
                         <p><br>
                         <ul>
-                            <li>HTML and SCSS to build and style the widgets (custom graphs)</li>
-                            <li>Coffescript, to add interaction to widgets - such as shift clicking to retreive data - as well as changing styles and elements based on data.</li>
+                            <li>HTML and SCSS to build and style the widgets (custom graphs).</li>
+                            <li>Coffescript, to add interaction to widgets - such as shift clicking to retrieve data - as well as changing styles and elements based on data.</li>
                             <li>Ruby, to get data to send to the widgets - data was pulled and subsequently parsed from the jiraSOAP gem, json files, and the Shareworks REST API.</li>
                             
                         </ul>
@@ -91,10 +91,10 @@
 						<p><br><!--/p-->
                             <ul>
                                 <li>Daily Tasks (JIRAS) Remaining and Completed.</li>
-                                <li>"Freshness" of jiras, based on thier last update. The colour changes to represent this.</li>
-                                <li>Locked, Escalated, and planned events. A symbol appears on jiras to represent this.</li>
-                                <li>Difficulty ("Simard Scale") of completed jiras.</li>
-                                <li>Weekly averages, distribution, and graph of the difficulty of completed jiras.</li>
+                                <li>'Freshness' of jiras, based on thier last update. The colour changes to represent this.</li>
+                                <li>The issue type or urgency - a symbol appears on jiras to represent this.</li>
+                                <li>Quantity/difficulty of work ('Simard Scale') for completed jiras.</li>
+                                <li>Weekly averages, distribution, and graph of the quantity of completed jiras.</li>
                                 <li>Double clicking on a specific jira will open the jira.</li>
                             </ul>
                             <!--p-->
@@ -172,9 +172,9 @@
                         
 					</section>
                     <section >
-						<h2>Marketing Site Mirror Example</h2><br>
+						<h2>Marketing Site Mirror Example</h2>
 						<img src="assets/s3_mirror.png">
-                            
+                        <small>Marketing Site running on s3</small>
                     </section>
                     
                 </section>
@@ -183,22 +183,24 @@
 					<section>
 						<h1>Jira Report Card</h1><br>
                         <p>
-						The Jira Report Card gives statistics on the jiras that a person or group of people raise. This is to show areas where improvement is needed (longer descriptions, more detail or planning) and where a person is strong (bug reports that lead to code fixes, multiple attachments).
-                        </p><br><p>It uses the REST API for jira, parses statistics in ruby, and generates graphs using d3.js, all with a PHP frontend.</p>
+						The Jira Report Card gives statistics on the jiras that a person or group of people raise. This is to show areas where improvement is needed (longer descriptions, more detail or planning) and where a person is strong (bug reports that lead to code fixes, multiple attachments). Statistics on the internal creators of tickets is important, as the higher the ticket quality, the faster it can be resolved.
+                        </p>
 					</section>
                     <section>
 						<h2>Programming</h2>
                         <p><br>
                         <ul>
-                            <li>PHP (formatted with css) to provide a frontend that would handle user input.</li>
-                            <li>Ruby to retreive data from the jira REST API, parse it, and generate CSV files for the report to use.</li>
+                            <li>PHP (formatted with css) to provide a frontend to handle user input.</li>
+                            <li>Apache configuration to allow PHP files to be interpreted</li>
+                            <li>Ruby to retrieve data from the jira REST API, parse it, and generate CSV files for the report to use.</li>
                             <li>d3.js to interactively display the data in a webpage.</li>
                         </ul>
-						<p>It uses the REST API for jira, parses statistics in ruby, and generates graphs using d3.js, all with a PHP frontend.</p>
+
 					</section>
 					<section >
-						<h2>Sample</h2>
+						<h2>Report Example</h2>
 						<img src="assets/jira_report.gif">
+                            <small style="font-size:0.4em">*Blueberries are a unit of difficulty or quantity of work</small>
 					</section>
                     
                 </section>
@@ -239,14 +241,20 @@
 						<h2>Monitorng and Alerting</h2><br>
                         <p>
                         Solium uses a monitoring and alerting system with 'traps' to catch errors and events that occur, such as a site outage or stalled transaction.
-                        I wrote a trap (using Ruby) that logs into Shareworks, follows redirects and navigates to the desired page, and checks for errors.
+                        I wrote a trap (using Ruby) that logs into Shareworks, follows redirects and navigates to the desired page, then checks for errors.
                         </p>
                     </section>
                     <section >
 						<h2>Upcoming Releases Board</h2>
                         <p>
-                        This is a simple page, using PHP with the jira API to retreive a list of versions, then removing past releases, and sorting by date.
+                        This is a simple page, using PHP with the jira API to retrieve a list of versions, then removing past releases, and sorting by date.
                         </p><img src="assets/releases_board.png">
+                    </section>
+                    
+                    <section >
+						<h2>Sample Database</h2><br>
+                        <p>
+                        Using ruby and postgresql, I built a sample database to allow people to learn basic SQL without touching a critical database. It uses various constraints such as primary keys, foreign keys, and unique values. The database contains several tables, each containing 1000 unique records.
                     </section>
                 </section>
 
@@ -255,7 +263,7 @@
 				<section>
 					<h1>END</h1>
 					<h3>MADE BY SPENCER WALTON</h3>
-                    <br><br><small>Using <a href="https://github.com/hakimel/reveal.js">reveal.js</small>
+                    <br><br>Using <a href="https://github.com/hakimel/reveal.js">reveal.js</a>
 				</section>
 
 			</div>
